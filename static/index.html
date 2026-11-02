@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c17">
+  <title>Random Number Generator</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+<main>
+  <header><span class="eyebrow">LOKI · RANDOM NUMBER GENERATOR</span>
+    <h1>Leave it to chance.</h1>
+    <p>A quick pick, a dice roll, a whole batch. You set the range.</p>
+  </header>
+  <section class="card" aria-label="Generator">
+    <form id="generator">
+      <div class="fields">
+        <label>Minimum<input name="min" type="number" value="1" min="-9007199254740991" max="9007199254740991" step="1" required></label>
+        <label>Maximum<input name="max" type="number" value="100" min="-9007199254740991" max="9007199254740991" step="1" required></label>
+        <label>Quantity<input name="count" type="number" value="1" min="1" max="100" step="1" required></label>
+      </div>
+      <div class="options"><label class="check"><input name="unique" type="checkbox"> No repeats</label><span>Both endpoints included</span></div>
+      <button type="submit" id="generate">Generate numbers <span aria-hidden="true">↗</span></button>
+    </form>
+    <div class="presets" aria-label="Quick presets"><span>Quick picks</span>
+      <button type="button" data-min="1" data-max="6">D6</button>
+      <button type="button" data-min="1" data-max="20">D20</button>
+      <button type="button" data-min="0" data-max="1">0 or 1</button>
+      <button type="button" data-min="1" data-max="100">1–100</button>
+    </div>
+    <p id="error" class="error" role="alert" hidden></p>
+    <section class="results" aria-labelledby="result-title" aria-busy="false">
+      <div class="result-heading"><h2 id="result-title">Your results</h2><button id="copy" type="button" hidden>Copy</button></div>
+      <div id="numbers" aria-live="polite" aria-atomic="true"><p class="placeholder">A little possibility. Just one click away.</p></div>
+      <p id="details" class="details"></p>
+      <p id="copy-status" class="details" role="status"></p>
+    </section>
+  </section>
+  <footer>System randomness. No saved history. Up to 100 integers per draw.</footer>
+  <noscript><p>Enable JavaScript to use this page, or open the app’s panel in the LOKI dashboard.</p></noscript>
+</main>
+</body>
+</html>
